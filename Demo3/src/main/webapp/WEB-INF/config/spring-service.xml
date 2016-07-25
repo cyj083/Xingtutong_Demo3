@@ -17,21 +17,29 @@
 	<!-- 1.扫描service类包,应用Spring的注解配置 -->
 	<context:component-scan base-package="com.springmvc.service"/>
 	
-	<!-- 2.配置事务管理器 -->
-	<bean id="transactionManager" 
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		p:dataSource-ref="dataSource" />
-	
-	<!-- 3.通过AOP配置提供事务增强,让service包下所有Bean的所有方法拥有事务 -->
-	<aop:config proxy-target-class="true">
+	<!-- 2.定义事务管理器 -->
+	<bean id="transactionManager"
+		  class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		  p:sessionFactory-ref="sessionFactory" />
+	<aop:config>
 		<aop:pointcut id="serviceMethod"
-			expression="execution(* com.springmvc.service..*(..))"/>
-		<aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice"/>
+			expression="execution(* com.springmvc.service.*Service.*(..))" />
+		<aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
- 			<tx:method name="*"/>
- 		</tx:attributes>
- 	</tx:advice>
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="add*" />
+			<tx:method name="save*" />
+			<tx:method name="remove*" />
+			<tx:method name="update*" />
+		</tx:attributes>
+	</tx:advice>
+ 	
+ 	<!-- 3.基于EHCache的系统缓存管理器 -->
+ 	<bean id="cacheManager"
+          class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+          p:configLocation="./ehcache.xml"/>
  	
 </beans>
