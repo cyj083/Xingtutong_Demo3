@@ -11,7 +11,7 @@
            http://www.springframework.org/schema/mvc
     	   http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd"
        >
-       
+
        <!-- 1.扫描web包,应用Spring的注解 --> 
        <context:component-scan base-package="com.springmvc.web"/>
        
@@ -40,15 +40,13 @@
           </property>  
        </bean>  
        
-       <!-- jsp页面的直接跳转 -->
+       
+       <!-- jsp页面的直接跳转,不经过controller的mapping -->
        <mvc:view-controller path="/login.html" view-name="login"/>
        <mvc:view-controller path="/index.html" view-name="index"/>
-       <mvc:view-controller path="/config.html" view-name="config"/>
-       <mvc:view-controller path="/position.html" view-name="position"/>
-	 
-	   <!-- 对静态资源的访问 的设置(由于restful风格)-->  
-	   <mvc:resources mapping="/css/**" location="/css/" />  
-	   <mvc:resources mapping="/image/**" location="/image/" />  
-       <mvc:resources mapping="/js/**" location="/js/" />  
-
+       <mvc:view-controller path="/1.html" view-name="1"/>
+       <mvc:view-controller path="/form1.html" view-name="form1"/>
+       <mvc:view-controller path="/table1.html" view-name="table1"/>
+       <mvc:view-controller path="/table2.html" view-name="table2"/>
+       
 </beans>

@@ -28,8 +28,4 @@ public class UserDao {
 		hibernateTemplate.update(user);
 	}
 
-	public List<User> queryUserByUserName(String userName){
-    	String hql = "from User u where u.userName like ?";
-        return (List<User>)hibernateTemplate.find(hql,userName+"%");
-    }
 }
