@@ -6,8 +6,8 @@
 
 body {
     background-color: #f8f8f8;
+	background:url(../img/bg.jpg)
 }
-
 #wrapper {
     width: 100%;
 }
@@ -22,7 +22,6 @@ body {
         position: inherit;
         margin: 25px 25px 25px 0;
         padding: 0 30px;
-        border-left: 1px solid #e7e7e7;
     }
 }
 

@@ -24,7 +24,6 @@ public class UserController{
 	@Autowired
 	private UserService userService;
 	
-	
 	/*
 	 * 登录验证
 	 */
@@ -41,14 +40,15 @@ public class UserController{
 			jsonObj.put("msg", "登录密码错误");
 		} else {
 			jsonObj.put("msg", "登录成功");
-            user.setLastIp(request.getLocalAddr());
+            user.setLastIp(request.getRemoteAddr());
             user.setLastVisit(new Date());
+            userService.updateUserInfo(user);
             userService.saveLoginInfo(user);
             
             request.getSession().setAttribute("user", userName);
 		}
 		
-		log.info("user login check " +  userName + " " + password);
+		log.info("user login check,userName=" +  userName + " password=" + password);
 		
 		return jsonObj;
 	}
@@ -63,3 +63,4 @@ public class UserController{
         return "index";
     }
 }
+	

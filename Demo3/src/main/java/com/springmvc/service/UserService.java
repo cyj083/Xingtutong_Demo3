@@ -15,7 +15,7 @@ public class UserService {
 	UserDao userDao;
 	@Autowired
 	LoginLogDao loginLogDao;
-
+		
     public User findUserByUserName(String userName) {
         User user  = userDao.getUserByUserName(userName);
         if(user==null)
@@ -24,12 +24,15 @@ public class UserService {
         	return user;
     }
     
+    public void updateUserInfo(User user){
+    	userDao.update(user);
+    }
+    
     public void saveLoginInfo(User user) {
         LoginLog loginLog = new LoginLog();
         loginLog.setUser(user);
         loginLog.setIp(user.getLastIp());
         loginLog.setLoginTime(user.getLastVisit());
-        userDao.update(user);
         loginLogDao.save(loginLog);
     }
 
