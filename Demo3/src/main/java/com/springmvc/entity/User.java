@@ -1,15 +1,12 @@
 package com.springmvc.entity;
 
 import javax.persistence.Entity;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "t_user")
-public class User{
+public class User {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +15,7 @@ public class User{
     protected String password;
     protected Date lastVisit;
     protected String lastIp;
-
+    
     public int getUserId() {
         return userId;
     }
@@ -58,4 +55,5 @@ public class User{
     public void setLastIp(String lastIp) {
         this.lastIp = lastIp;
     }
+
 }

@@ -8,24 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "t_loginLog")
-public class LoginLog{
+public class LoginLog {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int loginLogId;
-	
 	private Date loginTime;
-	
 	@ManyToOne
-	@JoinColumn(name = "userId")
+	@JoinColumn(name="userId")
     private User user;
-	
 	private String ip;
 	
 	public int getLoginLogId() {

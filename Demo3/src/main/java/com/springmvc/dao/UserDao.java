@@ -27,5 +27,7 @@ public class UserDao {
 	public void update(User user){
 		hibernateTemplate.update(user);
 	}
-
+	
 }
+
+

@@ -35,5 +35,9 @@ public class UserService {
         loginLog.setLoginTime(user.getLastVisit());
         loginLogDao.save(loginLog);
     }
+    
+    public LoginLog findLoginInfo(int userId){
+    	return loginLogDao.find(userId);
+    }
 
 }

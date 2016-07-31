@@ -69169,7 +69169,7 @@
 			r.type = "button",
 			r.className = "cesium-button cesium-fullscreenButton",
 			r.setAttribute("data-bind", "attr: { title: tooltip },click: command,enable: isFullscreenEnabled,cesiumSvgPath: { path: isFullscreen ? _exitFullScreenPath : _enterFullScreenPath, width: 128, height: 128 }"),
-			e.appendChild(r),
+			//e.appendChild(r),
 			n.applyBindings(i, r),
 			this._container = e,
 			this._viewModel = i,

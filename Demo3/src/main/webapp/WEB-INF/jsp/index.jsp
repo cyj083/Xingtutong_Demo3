@@ -4,7 +4,8 @@
 	String user = (String)session.getAttribute("user");
  %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,7 @@
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
-   <!-- Bootstrap Core CSS -->
+    <!-- Bootstrap Core CSS -->
     <link href="css/mybootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -229,7 +230,7 @@
                         <div class="panel-body">
                            <div id="cesiumContainer1"></div>
 							<script>
-							var viewer = new Cesium.Viewer('cesiumContainer1');
+								var viewer = new Cesium.Viewer('cesiumContainer1');
 								viewer.dataSources.add(Cesium.CzmlDataSource.load('SampleData/simple.czml'));
 							</script>
 							<a class="btn btn-default btn-block" data-toggle="modal" 

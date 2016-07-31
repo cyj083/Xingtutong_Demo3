@@ -4,7 +4,8 @@
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
   <!-- Use correct character set. -->
   <meta charset="utf-8">
