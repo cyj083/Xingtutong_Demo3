@@ -15,7 +15,7 @@
 	
 	<!-- 2.定义一个使用dbcp实现的数据源 -->
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="/WEB-INF/config/jdbc.properties"/>
+        <property name="location" value="classpath:jdbc.properties"/>
     </bean>
     <bean id="dataSource" 
           class="org.apache.commons.dbcp.BasicDataSource"

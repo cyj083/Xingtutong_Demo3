@@ -7,13 +7,13 @@
     <!-- 1.从类路径下加载Spring配置文件,classpath关键字特指类路径下加载 -->
     <context-param>
     	<param-name>contextConfigLocation</param-name>
-    	<param-value>/WEB-INF/config/applicationContext.xml</param-value>
+    	<param-value>classpath:applicationContext.xml</param-value>
     </context-param>
     
     <!-- 2.log4j日志输出配置 -->
     <context-param>
         <param-name>log4jConfigLocation</param-name> 
-        <param-value>/WEB-INF/config/log4j.properties</param-value>
+        <param-value>classpath:log4j.properties</param-value>
     </context-param>
     <listener>
         <listener-class>
@@ -34,7 +34,7 @@
     	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     	<init-param>
         	<param-name>contextConfigLocation</param-name>
-        	<param-value>/WEB-INF/config/spring-servlet.xml</param-value>
+        	<param-value>classpath:spring-servlet.xml</param-value>
     	</init-param>
     	<load-on-startup>3</load-on-startup>
     </servlet>
@@ -46,7 +46,7 @@
     </servlet-mapping>
     
     <welcome-file-list>
-        <welcome-file>./index.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     
 </web-app>

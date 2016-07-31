@@ -6,23 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import com.springmvc.entity.Base;
+
+import com.springmvc.entity.Test_;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"file:src/main/webapp/WEB-INF/config/applicationContext.xml"})
+@ContextConfiguration(locations={"classpath:applicationContext.xml"})
 public class BaseDaoTest extends AbstractJUnit4SpringContextTests{
 
 	@Autowired
-	BaseDao baseDao;
+	TestDao testDao;
 	
 	@Test
 	public void saveTest(){
-		Base base = new Base();
-		base.setString("e");
-		base.setNumber(15);
+		Test_ test = new Test_();
+		test.setString("e");
+		test.setNumber(15);
 		
-		baseDao.save(base);
+		testDao.save(test);
 	}
 	
+	@Test
+	public void getByIdTest(){
+		Test_ test = testDao.get(2L);
+		System.out.println(test.getString());
+	}
 	
 }
